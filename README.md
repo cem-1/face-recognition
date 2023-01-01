@@ -4,7 +4,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 # About Project
 
-This is my final project by following  "The Complete Web Developer in 2023: Zero to Mastery" course in Udemy<br /> https://www.udemy.com/course/the-complete-web-developer-zero-to-mastery.
+This is my first comprehensive project created while following  "The Complete Web Developer in 2023: Zero to Mastery" course in Udemy<br /> https://www.udemy.com/course/the-complete-web-developer-zero-to-mastery.
 
 Used:<br />
 -particles.js for animated background. <br />
