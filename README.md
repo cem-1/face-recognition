@@ -1,12 +1,9 @@
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
 # About Project
 
 This is my first comprehensive project created while following  "The Complete Web Developer in 2023: Zero to Mastery" course in Udemy<br /> https://www.udemy.com/course/the-complete-web-developer-zero-to-mastery.
 
 Used:<br />
+-[React](https://github.com/facebook/create-react-app)<br />
 -particles.js for animated background. <br />
 -clarifai api for image recognition.<br />
 -tchyons for fast styling.<br />
