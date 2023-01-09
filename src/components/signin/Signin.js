@@ -47,8 +47,7 @@ class Signin extends React.Component {
         let errorMsg;
         if (this.state.errorFlag) {
             // You can render any custom fallback UI
-            errorMsg = <p className="red b">Login failure! Try Again!</p>;
-            console.log("tryyy")
+            errorMsg = <p className="red b">Login failure!</p>;
           }
       
         return (

@@ -9,29 +9,32 @@ import FaceRecognition from "./components/facerecognition/FaceRecognition"
 import Signin from "./components/signin/Signin"
 import Register from "./components/register/Register"
 
-const USER_ID = 'Hidden';
-const PAT = 'Hidden';
-const APP_ID = 'Hidden';
+const USER_ID = 'e6uzz58qbgss';
+const PAT = 'c9f2fef0e7734711aaef9249726e6d01';
+const APP_ID = '36611efaf2a540e2b94b1a410d2bf24d';
 const MODEL_ID = 'face-detection';   
+
+const initialState ={
+  input: "",
+  imageUrl: "",
+  box: {},
+  route: "signin",
+  isSignIn: false,
+  user: {
+    id: "",
+    name: "",
+    email: "",
+    entries: 0,
+    joined: "",
+}
+}
 
 class App extends React.Component {
   constructor(){
     super()
-    this.state = {
-      input: "",
-      imageUrl: "",
-      box: {},
-      route: "signin",
-      isSignIn: false,
-      user: {
-        id: "",
-        name: "",
-        email: "",
-        entries: 0,
-        joined: "",
-      }
+    this.state = initialState;
     }
-  } 
+  
 
   loadUser = (data) => {
     this.setState({user: {
@@ -66,43 +69,24 @@ class App extends React.Component {
 
   onButtonSubmit = () =>{
   this.setState({imageUrl: this.state.input});
-  var IMAGE_URL = this.state.input;
-
-  const raw = JSON.stringify({
-  "user_app_id": {
-      "user_id": USER_ID,
-      "app_id": APP_ID
-  },
-  "inputs": [
-      {
-          "data": {
-              "image": {
-                  "url": IMAGE_URL
-              }
-          }
-      }
-  ]
-    });
-const requestOptions = {
-  method: 'POST',
-  headers: {
-      'Accept': 'application/json',
-      'Authorization': 'Key ' + PAT
-  },
-  body: raw
-};
-  fetch("https://api.clarifai.com/v2/models/" + MODEL_ID + "/outputs", requestOptions)
+  
+  fetch("http://localhost:4000/imageurl", {
+    method: "post",
+    headers:{"Content-Type":"application/json"},
+    body: JSON.stringify({
+      input: this.state.input
+    })
+  })
   .then(response => response.text())
   .then(response => {
     const parser = JSON.parse(response);
     this.displayFaceBox(this.calculateFaceLocation(parser));
-  })
-  .catch(error => console.log('error', error));
+  }).catch(error => console.log('error', error));
   }
 
   onRouteChange = (route) =>{
     if(route === "signout") {
-      this.setState({isSignIn: false}) } 
+      this.setState(initialState) } 
       else if (route === "home"){
       this.setState({isSignIn: true})
       }
@@ -126,7 +110,6 @@ const requestOptions = {
     </div>
   );
 }
-
 }
 
 export default App;
