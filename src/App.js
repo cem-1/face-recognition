@@ -9,11 +9,6 @@ import FaceRecognition from "./components/facerecognition/FaceRecognition"
 import Signin from "./components/signin/Signin"
 import Register from "./components/register/Register"
 
-const USER_ID = 'e6uzz58qbgss';
-const PAT = 'c9f2fef0e7734711aaef9249726e6d01';
-const APP_ID = '36611efaf2a540e2b94b1a410d2bf24d';
-const MODEL_ID = 'face-detection';   
-
 const initialState ={
   input: "",
   imageUrl: "",
